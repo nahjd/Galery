@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const API = import.meta.env.VITE_API_BASE || "http://localhost:7070";
+const API = import.meta.env.VITE_API_BASE || "https://galery-photos.onrender.com";
 
 // helper fetch
 async function request(path, { method = "GET", body } = {}) {
@@ -26,7 +26,7 @@ async function request(path, { method = "GET", body } = {}) {
 
 /* ============ THUNK-LAR (ENDPOINTLƏR) ============ */
 export const uploadPhotoFile = createAsyncThunk("photos/uploadFile", async (file) => {
-  const API = import.meta.env.VITE_API_BASE || "http://localhost:7070";
+  const API = import.meta.env.VITE_API_BASE || "https://galery-photos.onrender.com";
   const fd = new FormData();
   fd.append("file", file);
   const res = await fetch(`${API}/api/upload`, { method: "POST", body: fd });
